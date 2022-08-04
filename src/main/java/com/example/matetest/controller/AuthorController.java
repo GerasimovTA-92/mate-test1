@@ -9,6 +9,7 @@ import com.example.matetest.service.ResponseDtoMapper;
 import java.util.List;
 import java.util.stream.Collectors;
 import javax.validation.Valid;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -36,7 +37,8 @@ public class AuthorController {
 
     @GetMapping("/most-successful")
     public Object[] findMostSuccessful() {
-        return authorService.findMostSuccessful();
+        PageRequest pageRequest = PageRequest.of(0, 1);
+        return authorService.findMostSuccessful(pageRequest);
     }
 
     @GetMapping
