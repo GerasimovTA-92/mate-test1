@@ -4,6 +4,7 @@ import com.example.matetest.model.Author;
 import com.example.matetest.repository.AuthorRepository;
 import com.example.matetest.service.AuthorService;
 import java.util.List;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -30,8 +31,8 @@ public class AuthorServiceImpl implements AuthorService {
     }
 
     @Override
-    public Object[] findMostSuccessful() {
-        return authorRepository.findMostSuccessful();
+    public Object[] findMostSuccessful(PageRequest pageRequest) {
+        return authorRepository.findMostSuccessful(pageRequest);
     }
 
     @Override
